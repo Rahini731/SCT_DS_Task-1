@@ -1,0 +1,12 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from google.colab import files
+uploaded = files.upload()
+df = pd.read_excel("API_SP.POP.TOTL_DS2_en_excel_v2_38348.xls", skiprows=3)
+df = df[['Country Name', '2022']].dropna()
+plt.hist(df['2022'], bins=30, color='skyblue', edgecolor='black')
+plt.xlabel('Population in 2022')
+plt.ylabel('Number of Countries')
+plt.title('Histogram of Population (2022)')
+plt.grid(True)
+plt.show()
